@@ -1,0 +1,68 @@
+---
+const stats = [
+  {
+    number: "3",
+    label: "High-Resolution LED Screens"
+  },
+  {
+    number: "∞",
+    label: "Advertising Possibilities"
+  },
+  {
+    number: "100%",
+    label: "Custom Campaigns"
+  },
+  {
+    number: "24/7",
+    label: "Maximum Visibility"
+  }
+];
+---
+
+<section class="relative overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 py-28">
+
+<div class="absolute inset-0 opacity-20">
+
+<div class="absolute left-0 top-0 h-96 w-96 rounded-full bg-cyan-500 blur-3xl"></div>
+
+<div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-orange-500 blur-3xl"></div>
+
+</div>
+
+<div class="container relative z-10">
+
+<div class="mb-16 text-center">
+
+<p class="mb-4 font-semibold uppercase tracking-[0.3em] text-cyan-300">
+BUILT FOR IMPACT
+</p>
+
+<h2 class="text-5xl font-black text-white">
+Why Clients Choose Motion Mark
+</h2>
+
+</div>
+
+<div class="grid gap-10 text-center md:grid-cols-2 lg:grid-cols-4">
+
+{
+stats.map((stat)=>(
+<div>
+
+<h3 class="mb-4 text-6xl font-black text-white">
+{stat.number}
+</h3>
+
+<p class="text-slate-300">
+{stat.label}
+</p>
+
+</div>
+))
+}
+
+</div>
+
+</div>
+
+</section>

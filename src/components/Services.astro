@@ -1,0 +1,118 @@
+---
+const services = [
+  {
+    icon: "🚚",
+    title: "Mobile LED Advertising",
+    description:
+      "Reach thousands of potential customers with dynamic advertising displayed on our triple-sided LED truck as it travels through high-traffic locations.",
+    items: [
+      "Custom Advertising Routes",
+      "Triple High-Resolution LED Screens",
+      "Maximum Brand Exposure"
+    ]
+  },
+  {
+    icon: "🎤",
+    title: "Events & Entertainment",
+    description:
+      "Transform any venue into a professional event with a fold-out stage, premium LED displays and crystal-clear sound.",
+    items: [
+      "Fold-Out Stage",
+      "Professional Audio System",
+      "Live Video Display"
+    ]
+  },
+  {
+    icon: "✨",
+    title: "Brand Activations",
+    description:
+      "Launch products, promote campaigns and create memorable experiences that capture attention.",
+    items: [
+      "Product Launches",
+      "Roadshows",
+      "Festivals & Sporting Events"
+    ]
+  }
+];
+---
+
+<section id="services" class="bg-white py-28">
+
+  <div class="container">
+
+    <div class="section-title">
+      <p>SERVICES</p>
+      <h2>Everything You Need To Make An Impact</h2>
+      <span>
+        From mobile advertising to live events, Motion Mark delivers unforgettable experiences.
+      </span>
+    </div>
+
+    <div class="space-y-10">
+
+      {
+        services.map((service) => (
+
+          <div class="card p-10">
+
+            <div class="flex flex-col gap-8 lg:flex-row">
+
+              <div class="text-6xl">
+                {service.icon}
+              </div>
+
+              <div class="flex-1">
+
+                <h3 class="mb-4 text-3xl font-bold">
+                  {service.title}
+                </h3>
+
+                <p class="mb-6">
+                  {service.description}
+                </p>
+
+                <div class="grid gap-3 md:grid-cols-3">
+
+                  {
+                    service.items.map((item)=>(
+                      <div class="rounded-xl bg-slate-100 px-5 py-4 font-medium">
+                        ✓ {item}
+                      </div>
+                    ))
+                  }
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        ))
+      }
+
+    </div>
+
+    <div class="mt-20 text-center">
+
+      <h3 class="mb-4 text-4xl font-black">
+        Ready to Get Your Message Moving?
+      </h3>
+
+      <p class="mx-auto mb-10 max-w-2xl">
+        Whether it's a one-day event or a nationwide campaign, we'll help you create an unforgettable experience.
+      </p>
+
+      <a
+        href="#contact"
+        class="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-orange-500 px-10 py-5 font-semibold text-white transition hover:scale-105"
+      >
+        Request a Quote
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

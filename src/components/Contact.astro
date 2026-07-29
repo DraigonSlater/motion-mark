@@ -1,0 +1,160 @@
+---
+interface Props {
+  companyName?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  socials?: { label: string; href: string }[];
+}
+
+const {
+  companyName = 'Motion Mark',
+  phone = '+27 63 685 5083',
+  email = 'info@motionmark.co.za',
+  address = 'Cape Town, Western Cape',
+  socials = [
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr' },
+    { label: 'Instagram', href: 'https://www.instagram.com/motionmarksa/' },
+    { label: 'WhatsApp', href: 'http://wa.me/27636855083' },
+  ],
+} = Astro.props;
+---
+
+<section id="contact" class="section contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Contact Us</h2>
+      <p class="contact-lead">
+        Need a quote or want to book a delivery? Reach out — we usually
+        reply within a business day.
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <strong>Phone</strong>
+          <a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a>
+        </li>
+        <li>
+          <strong>Email</strong>
+          <a href={`mailto:${email}`}>{email}</a>
+        </li>
+        <li>
+          <strong>Address</strong>
+          <span>{address}</span>
+        </li>
+      </ul>
+
+      <div class="socials">
+        {socials.map((s) => (
+          <a href={s.href} class="social-link">{s.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div class="map-placeholder">
+      <!--
+        Swap this for a real embed, e.g.:
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+      -->
+      <span>Map / location embed goes here</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
+  © {new Date().getFullYear()} Motion Mark. All rights reserved.
+  <span class="mx-2">•</span>
+  Designed by <span class="font-semibold gradient-text">Dextera Digital</span>
+</div>
+</footer>
+
+<style>
+  .contact {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .contact-lead {
+    color: rgba(255,255,255,0.8);
+    max-width: 420px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .contact-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .contact-list strong {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+  }
+
+  .contact-list a, .contact-list span {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-list a:hover { text-decoration: underline; }
+
+  .socials {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    padding: 0.6rem 1.1rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .social-link:hover { border-color: var(--color-white); }
+
+  .map-placeholder {
+    background: rgba(255,255,255,0.08);
+    border: 1px dashed rgba(255,255,255,0.3);
+    border-radius: var(--radius);
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .footer {
+    background: #081a33;
+    color: rgba(255,255,255,0.6);
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 720px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

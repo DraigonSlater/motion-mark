@@ -1,0 +1,75 @@
+---
+const links = [
+  { name: "Home", href: "#" },
+  { name: "Services", href: "#services" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-200 shadow-sm">
+
+  <div class="mx-auto flex h-24 max-w-7xl items-center justify-between px-8">
+
+    <!-- Logo -->
+
+    <a href="/" class="flex items-center gap-4">
+
+      <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 via-cyan-500 to-orange-500 text-white font-black text-xl shadow-lg">
+        MM
+      </div>
+
+      <div>
+
+        <h2 class="text-xl font-black text-slate-900">
+          Motion Mark
+        </h2>
+
+        <p class="text-sm text-slate-500">
+          Your Message. In Motion.
+        </p>
+
+      </div>
+
+    </a>
+
+    <!-- Nav -->
+
+    <nav class="hidden lg:block">
+
+      <ul class="flex gap-10">
+
+        {
+          links.map(link => (
+
+            <li>
+
+              <a
+                href={link.href}
+                class="nav-link text-slate-700"
+              >
+                {link.name}
+              </a>
+
+            </li>
+
+          ))
+        }
+
+      </ul>
+
+    </nav>
+
+    <!-- Button -->
+
+    <a
+      href="#contact"
+      class="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-orange-500 px-7 py-3 font-semibold text-white transition duration-300 hover:scale-105"
+    >
+      Request a Quote
+    </a>
+
+  </div>
+
+</header>

@@ -1,0 +1,64 @@
+---
+const gallery = [
+  {
+    title: "Mobile LED Advertising",
+    image: "/images/gallery-1.jpg"
+  },
+  {
+    title: "Corporate Events",
+    image: "/images/gallery-2.jpg"
+  },
+  {
+    title: "Festivals & Concerts",
+    image: "/images/gallery-3.jpg"
+  },
+  {
+    title: "Brand Activations",
+    image: "/images/gallery-4.jpg"
+  }
+];
+---
+
+<section id="gallery" class="bg-alt">
+
+  <div class="container">
+
+    <div class="section-title">
+      <p>GALLERY</p>
+      <h2>Imagine Your Brand Here</h2>
+      <span>Professional placeholder images until your truck photography is ready.</span>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+
+      {
+        gallery.map((item) => (
+
+          <div class="group relative overflow-hidden rounded-[30px] shadow-xl">
+
+            <img
+              src={item.image}
+              alt={item.title}
+              class="h-[350px] w-full object-cover transition duration-700 group-hover:scale-110"
+            />
+
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent"></div>
+
+            <div class="absolute bottom-8 left-8">
+
+              <h3 class="text-3xl font-black text-white">
+                {item.title}
+              </h3>
+
+            </div>
+
+          </div>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+
+</section>
