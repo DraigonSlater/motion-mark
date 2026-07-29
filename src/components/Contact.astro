@@ -13,223 +13,496 @@ const {
   email = 'info@motionmark.co.za',
   address = 'Cape Town, Western Cape',
   socials = [
-    { label: 'Facebook', href: 'https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr' },
-    { label: 'Instagram', href: 'https://www.instagram.com/motionmarksa/' },
-    { label: 'WhatsApp', href: 'http://wa.me/27636855083' },
+    {
+      label: 'Facebook',
+      href: 'https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr'
+    },
+    {
+      label: 'Instagram',
+      href: 'https://www.instagram.com/motionmarksa/'
+    },
+    {
+      label: 'WhatsApp',
+      href: 'http://wa.me/27636855083'
+    },
   ],
 } = Astro.props;
 ---
 
 <section id="contact" class="contact">
-  <div class="container contact-grid">
-    <div>
-      <span class="eyebrow">Get In Touch</span>
-      <h2>Contact Us</h2>
+
+  <div class="container">
+
+    <!-- Heading -->
+
+    <div class="contact-heading">
+
+      <span class="eyebrow">
+        GET IN TOUCH
+      </span>
+
+      <h2>
+        Contact Us
+      </h2>
+
       <p class="contact-lead">
-        Need a quote or want to book a delivery? Reach out — we usually
-        reply within a business day.
+        Need a quote or want to book a campaign? Reach out — we'd love to
+        hear about your project and help put your message in motion.
       </p>
 
-      <ul class="contact-list">
-        <li>
-          <strong>Phone</strong>
-          <a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a>
-        </li>
-        <li>
-          <strong>Email</strong>
-          <a href={`mailto:${email}`}>{email}</a>
-        </li>
-        <li>
-          <strong>Address</strong>
-          <span>{address}</span>
-        </li>
-      </ul>
+    </div>
+
+
+    <!-- Contact Information -->
+
+    <div class="contact-content">
+
+      <div class="contact-details">
+
+        <div class="contact-item">
+
+          <span class="contact-label">
+            Phone
+          </span>
+
+          <a
+            href={`tel:${phone.replace(/\s+/g, '')}`}
+            class="contact-value"
+          >
+            {phone}
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <span class="contact-label">
+            Email
+          </span>
+
+          <a
+            href={`mailto:${email}`}
+            class="contact-value"
+          >
+            {email}
+          </a>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <span class="contact-label">
+            Based In
+          </span>
+
+          <span class="contact-value">
+            {address}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- Social Links -->
 
       <div class="socials">
-        {socials.map((s) => (
-          <a href={s.href} class="social-link">{s.label}</a>
+
+        {socials.map((social) => (
+
+          <a
+            href={social.href}
+            class="social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {social.label}
+          </a>
+
         ))}
+
       </div>
+
     </div>
 
-    <div class="contact-card">
-
-      <p class="contact-card-title">
-        Ready to get your message moving?
-      </p>
-
-      <p class="contact-card-text">
-        Whether you're launching a new product, promoting an event or looking to
-        increase your brand's visibility, we're here to help bring your campaign
-        to life.
-      </p>
-
-      <a href="#contact" class="contact-card-button">
-        Request a Quote
-      </a>
-    </div>
   </div>
+
 </section>
 
+
+<!-- Footer -->
+
 <footer class="footer">
-  <div class="border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
-  © {new Date().getFullYear()} Motion Mark. All rights reserved.
-  <span class="mx-2">•</span>
-  Designed by <span class="font-semibold gradient-text">Dextera Digital</span>
-</div>
+
+  <div class="footer-inner">
+
+    <p>
+      © {new Date().getFullYear()} {companyName}. All rights reserved.
+    </p>
+
+    <p>
+      Designed by
+      <span class="gradient-text font-semibold">
+        Dextera Digital
+      </span>
+    </p>
+
+  </div>
+
 </footer>
 
+
 <style>
+
+  /* ============================================
+     Contact Section
+     ============================================ */
+
   .contact {
+
     background: var(--color-primary);
+
     color: var(--color-white);
+
+    /*
+      We deliberately control the spacing here
+      instead of relying on the global section padding.
+    */
 
     padding-top: 5rem;
-    padding-bottom: 2rem;
+
+    padding-bottom: 3rem;
+
   }
+
+
+  /* ============================================
+     Heading
+     ============================================ */
+
+  .contact-heading {
+
+    max-width: 700px;
+
+    margin-bottom: 3rem;
+
+  }
+
+
+  .contact-heading .eyebrow {
+
+    display: block;
+
+    margin-bottom: .75rem;
+
+    color: var(--color-accent);
+
+    font-size: .8rem;
+
+    font-weight: 700;
+
+    letter-spacing: .25rem;
+
+    text-transform: uppercase;
+
+  }
+
+
+  .contact-heading h2 {
+
+    margin: 0 0 1rem;
+
+    color: white;
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+  }
+
 
   .contact-lead {
-    color: rgba(255,255,255,0.8);
-    max-width: 420px;
+
+    max-width: 600px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
   }
 
-  .contact-grid {
+
+  /* ============================================
+     Contact Content
+     ============================================ */
+
+  .contact-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2.5rem;
+
+  }
+
+
+  .contact-details {
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
   }
 
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
+
+  .contact-item {
+
     display: flex;
+
     flex-direction: column;
-    gap: 0.9rem;
+
+    gap: .4rem;
+
   }
 
-  .contact-list li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
 
-  .contact-list strong {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  .contact-label {
+
     color: var(--color-accent);
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    letter-spacing: .12rem;
+
+    text-transform: uppercase;
+
   }
 
-  .contact-list a, .contact-list span {
-    color: var(--color-white);
+
+  .contact-value {
+
+    color: white;
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
     text-decoration: none;
-    font-weight: 500;
+
+    transition: .25s ease;
+
   }
 
-  .contact-list a:hover { text-decoration: underline; }
+
+  a.contact-value:hover {
+
+    color: #67e8f9;
+
+  }
+
+
+  /* ============================================
+     Social Links
+     ============================================ */
 
   .socials {
+
     display: flex;
-    gap: 1rem;
+
+    flex-wrap: wrap;
+
+    gap: .75rem;
+
   }
+
 
   .social-link {
-    padding: 0.6rem 1.1rem;
-    border: 2px solid rgba(255,255,255,0.4);
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: .65rem 1.2rem;
+
+    border: 1px solid rgba(255,255,255,.3);
+
     border-radius: 999px;
-    text-decoration: none;
-    font-size: 0.85rem;
+
+    color: white;
+
+    font-size: .85rem;
+
     font-weight: 600;
+
+    text-decoration: none;
+
+    transition: .25s ease;
+
   }
 
-  .social-link:hover { border-color: var(--color-white); }
 
-  .contact-card{
-    background:rgba(255,255,255,.08);
+  .social-link:hover {
 
-    border:1px solid rgba(255,255,255,.15);
+    border-color: white;
 
-    border-radius:24px;
+    background: rgba(255,255,255,.1);
 
-    padding:3rem;
+    transform: translateY(-2px);
 
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-
-    min-height:340px;
-
-    backdrop-filter:blur(12px);
   }
 
-  .contact-card-title{
 
-    font-size:2rem;
-
-    font-weight:800;
-
-    color:white;
-
-    margin-bottom:1rem;
-
-    line-height:1.2;
-  }
-
-  .contact-card-text{
-
-    color:rgba(255,255,255,.75);
-
-    line-height:1.8;
-
-    margin-bottom:2rem;
-  }
-
-  .contact-card-button{
-
-    display:inline-flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    width:fit-content;
-
-    padding:.9rem 2rem;
-
-    border-radius:999px;
-
-    background:linear-gradient(
-        90deg,
-        #2563EB,
-        #06B6D4,
-        #EA580C
-    );
-
-    color:white;
-
-    font-weight:700;
-
-    transition:.3s;
-  }
-
-  .contact-card-button:hover{
-
-    transform:translateY(-4px);
-  }
+  /* ============================================
+     Footer
+     ============================================ */
 
   .footer {
+
     background: #081a33;
-    color: rgba(255,255,255,0.6);
 
-    padding: 1rem 0;
+    color: rgba(255,255,255,.6);
 
-    font-size: 0.85rem;
+    padding: 1.25rem 0;
+
   }
+
+
+  .footer-inner {
+
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+
+    padding-top: 1.25rem;
+
+  }
+
+
+  .footer-inner p {
+
+    margin: 0;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: .8rem;
+
+  }
+
+
+  /* ============================================
+     Mobile
+     ============================================ */
 
   @media (max-width: 720px) {
-    .contact-grid { grid-template-columns: 1fr; }
+
+    .contact {
+
+      padding-top: 4rem;
+
+      padding-bottom: 2.5rem;
+
+    }
+
+
+    .contact-heading {
+
+      margin-bottom: 2.5rem;
+
+    }
+
+
+    .contact-heading h2 {
+
+      font-size: 2.75rem;
+
+    }
+
+
+    .contact-lead {
+
+      font-size: 1rem;
+
+      line-height: 1.7;
+
+    }
+
+
+    .contact-details {
+
+      grid-template-columns: 1fr;
+
+      gap: 1.5rem;
+
+    }
+
+
+    .contact-content {
+
+      gap: 2rem;
+
+    }
+
+
+    .socials {
+
+      gap: .6rem;
+
+    }
+
+
+    .social-link {
+
+      padding: .6rem 1rem;
+
+    }
+
+
+    .footer {
+
+      padding: 1rem 0;
+
+    }
+
+
+    .footer-inner {
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      text-align: center;
+
+      gap: .35rem;
+
+      padding-top: 1rem;
+
+    }
+
   }
+
 </style>
