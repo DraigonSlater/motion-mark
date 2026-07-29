@@ -52,12 +52,21 @@ const {
       </div>
     </div>
 
-    <div class="map-placeholder">
-      <!--
-        Swap this for a real embed, e.g.:
-        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
-      -->
-      <span>Map / location embed goes here</span>
+    <div class="contact-card">
+
+      <p class="contact-card-title">
+        Ready to get your message moving?
+      </p>
+
+      <p class="contact-card-text">
+        Whether you're launching a new product, promoting an event or looking to
+        increase your brand's visibility, we're here to help bring your campaign
+        to life.
+      </p>
+
+      <a href="#contact" class="contact-card-button">
+        Request a Quote
+      </a>
     </div>
   </div>
 </section>
@@ -137,17 +146,78 @@ const {
 
   .social-link:hover { border-color: var(--color-white); }
 
-  .map-placeholder {
-    background: rgba(255,255,255,0.08);
-    border: 1px dashed rgba(255,255,255,0.3);
-    border-radius: var(--radius);
-    aspect-ratio: 16 / 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 1rem;
+  .contact-card{
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:24px;
+
+    padding:3rem;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+
+    min-height:340px;
+
+    backdrop-filter:blur(12px);
+  }
+
+  .contact-card-title{
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    color:white;
+
+    margin-bottom:1rem;
+
+    line-height:1.2;
+  }
+
+  .contact-card-text{
+
+    color:rgba(255,255,255,.75);
+
+    line-height:1.8;
+
+    margin-bottom:2rem;
+  }
+
+  .contact-card-button{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:fit-content;
+
+    padding:.9rem 2rem;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #06B6D4,
+        #EA580C
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.3s;
+  }
+
+  .contact-card-button:hover{
+
+    transform:translateY(-4px);
   }
 
   .footer {
