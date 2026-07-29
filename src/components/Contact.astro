@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<section id="contact" class="section contact">
+<section id="contact" class="contact">
   <div class="container contact-grid">
     <div>
       <span class="eyebrow">Get In Touch</span>
@@ -74,6 +74,9 @@ const {
   .contact {
     background: var(--color-primary);
     color: var(--color-white);
+
+    padding-top: 5rem;
+    padding-bottom: 2rem;
   }
 
   .contact-lead {
@@ -138,7 +141,7 @@ const {
     background: rgba(255,255,255,0.08);
     border: 1px dashed rgba(255,255,255,0.3);
     border-radius: var(--radius);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,7 +153,9 @@ const {
   .footer {
     background: #081a33;
     color: rgba(255,255,255,0.6);
-    padding: 1.5rem 0;
+
+    padding: 1rem 0;
+
     font-size: 0.85rem;
   }
 
