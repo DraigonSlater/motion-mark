@@ -4,7 +4,6 @@ interface Props {
   phone?: string;
   email?: string;
   address?: string;
-  socials?: { label: string; href: string }[];
 }
 
 const {
@@ -12,101 +11,112 @@ const {
   phone = '+27 63 685 5083',
   email = 'info@motionmark.co.za',
   address = 'Cape Town, Western Cape',
-  socials = [
-    {
-      label: 'Facebook',
-      href: 'https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr'
-    },
-    {
-      label: 'Instagram',
-      href: 'https://www.instagram.com/motionmarksa/'
-    },
-    {
-      label: 'WhatsApp',
-      href: 'http://wa.me/27636855083'
-    },
-  ],
 } = Astro.props;
 ---
 
-<section id="contact" class="contact">
+<section id="contact" class="contact-section">
 
-  <div class="container">
+  <div class="contact-container">
+
+    <!-- Contact Heading -->
 
     <div class="contact-content">
 
-      <div>
+      <span class="contact-eyebrow">
+        GET IN TOUCH
+      </span>
 
-        <span class="eyebrow">
-          Get In Touch
-        </span>
+      <h2 class="contact-title">
+        Contact Us
+      </h2>
 
-        <h2>
-          Contact Us
-        </h2>
+      <p class="contact-lead">
+        Need a quote or want to book a delivery? Reach out — we usually
+        reply within a business day.
+      </p>
 
-        <p class="contact-lead">
-          Need a quote or want to book a delivery? Reach out — we usually
-          reply within a business day.
-        </p>
 
-        <ul class="contact-list">
+      <!-- Contact Details -->
 
-          <li>
-            <strong>Phone</strong>
+      <ul class="contact-list">
 
-            <a href={`tel:${phone.replace(/\s+/g, '')}`}>
-              {phone}
-            </a>
-          </li>
+        <li class="contact-item">
 
-          <li>
-            <strong>Email</strong>
-
-            <a href={`mailto:${email}`}>
-              {email}
-            </a>
-          </li>
-
-          <li>
-            <strong>Address</strong>
-
-            <span>
-              {address}
-            </span>
-          </li>
-
-        </ul>
-
-        <div class="socials">
+          <strong>
+            Phone
+          </strong>
 
           <a
-            href="https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr"
-            class="social-link"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`tel:${phone.replace(/\s+/g, '')}`}
           >
-            Facebook
+            {phone}
           </a>
 
-          <a
-            href="https://www.instagram.com/motionmarksa/"
-            class="social-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
+        </li>
+
+
+        <li class="contact-item">
+
+          <strong>
+            Email
+          </strong>
 
           <a
-            href="http://wa.me/27636855083"
-            class="social-link"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${email}`}
           >
-            WhatsApp
+            {email}
           </a>
-        </div>
+
+        </li>
+
+
+        <li class="contact-item">
+
+          <strong>
+            Address
+          </strong>
+
+          <span>
+            {address}
+          </span>
+
+        </li>
+
+      </ul>
+
+
+      <!-- Social Buttons -->
+
+      <div class="contact-socials">
+
+        <a
+          href="https://www.facebook.com/share/1R7wnJ418F/?mibextid=wwXIfr"
+          class="contact-social-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/motionmarksa/"
+          class="contact-social-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+
+
+        <a
+          href="http://wa.me/27636855083"
+          class="contact-social-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
 
       </div>
 
@@ -117,19 +127,23 @@ const {
 </section>
 
 
-<footer class="footer">
+<!-- Footer -->
 
-  <div class="border-t border-white/10 pt-6 text-center text-sm text-white/60">
+<footer class="motion-footer">
 
-    © {new Date().getFullYear()} {companyName}. All rights reserved.
+  <div class="footer-inner">
 
-    <span class="mx-2">•</span>
+    <p>
+      © {new Date().getFullYear()} {companyName}. All rights reserved.
+    </p>
 
-    Designed by
+    <p>
+      <span>Designed by</span>
 
-    <span class="font-semibold gradient-text">
-      Dextera Digital
-    </span>
+      <span class="dextera">
+        Dextera Digital
+      </span>
+    </p>
 
   </div>
 
@@ -138,15 +152,28 @@ const {
 
 <style>
 
-  .contact {
+  /* ============================================
+     CONTACT SECTION
+     ============================================ */
+
+  .contact-section {
 
     background: var(--color-primary);
 
-    color: var(--color-white);
+    color: #ffffff;
 
     padding-top: 5rem;
 
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
+
+  }
+
+
+  .contact-container {
+
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
 
   }
 
@@ -158,14 +185,62 @@ const {
   }
 
 
-  .contact-lead {
+  /* ============================================
+     HEADING
+     ============================================ */
 
-    color: rgba(255,255,255,0.8);
+  .contact-eyebrow {
 
-    max-width: 420px;
+    display: block;
+
+    margin-bottom: .75rem;
+
+    color: var(--color-accent);
+
+    font-size: .8rem;
+
+    font-weight: 700;
+
+    letter-spacing: .25rem;
+
+    text-transform: uppercase;
 
   }
 
+
+  .contact-title {
+
+    margin: 0 0 1rem;
+
+    color: #ffffff;
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+
+    font-weight: 900;
+
+    line-height: 1.05;
+
+  }
+
+
+  .contact-lead {
+
+    max-width: 420px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,.8);
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+  }
+
+
+  /* ============================================
+     CONTACT DETAILS
+     ============================================ */
 
   .contact-list {
 
@@ -173,126 +248,228 @@ const {
 
     padding: 0;
 
-    margin: 1.5rem 0;
+    margin: 2rem 0 0;
 
     display: flex;
 
     flex-direction: column;
-
-    gap: 0.9rem;
-
-  }
-
-
-  .contact-list li {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 0.15rem;
-
-  }
-
-
-  .contact-list strong {
-
-    font-size: 0.75rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.08em;
-
-    color: var(--color-accent);
-
-  }
-
-
-  .contact-list a,
-  .contact-list span {
-
-    color: var(--color-white);
-
-    text-decoration: none;
-
-    font-weight: 500;
-
-  }
-
-
-  .contact-list a:hover {
-
-    text-decoration: underline;
-
-  }
-
-
-  .socials {
-
-    display: flex;
-
-    flex-wrap: wrap;
 
     gap: 1rem;
 
   }
 
 
-  .social-link {
+  .contact-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .2rem;
+
+  }
+
+
+  .contact-item strong {
+
+    color: var(--color-accent);
+
+    font-size: .75rem;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+  }
+
+
+  .contact-item a,
+
+  .contact-item span {
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+  }
+
+
+  .contact-item a:hover {
+
+    text-decoration: underline;
+
+  }
+
+
+  /* ============================================
+     SOCIAL BUTTONS
+     ============================================ */
+
+  .contact-socials {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .8rem;
+
+    margin-top: 2rem;
+
+  }
+
+
+  .contact-social-button {
+
     display: inline-flex;
-   align-items: center;
+
+    align-items: center;
+
     justify-content: center;
 
-   padding: 0.65rem 1.25rem;
+    min-width: 100px;
 
-   border: 2px solid rgba(255, 255, 255, 0.6);
-   border-radius: 999px;
+    min-height: 44px;
 
-   background: rgba(255, 255, 255, 0.08);
+    padding: .65rem 1.25rem;
 
-   color: #ffffff !important;
+    background: rgba(255,255,255,.10);
 
-    font-size: 0.85rem;
-    font-weight: 600;
+    border: 2px solid rgba(255,255,255,.65);
+
+    border-radius: 999px;
+
+    color: #ffffff !important;
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-align: center;
 
     text-decoration: none !important;
 
-    opacity: 1;
+    opacity: 1 !important;
 
-    transition: all 0.25s ease;
+    visibility: visible !important;
+
+    position: relative;
+
+    z-index: 5;
+
+    transition:
+      background .25s ease,
+      border-color .25s ease,
+      transform .25s ease;
+
   }
 
-  .social-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+
+  .contact-social-button:hover {
+
+    background: rgba(255,255,255,.20);
 
     border-color: #ffffff;
 
     color: #ffffff !important;
 
     transform: translateY(-2px);
+
   }
 
 
-  .footer {
+  /* ============================================
+     FOOTER
+     ============================================ */
+
+  .motion-footer {
 
     background: #081a33;
 
-    color: rgba(255,255,255,0.6);
+    padding: 1.25rem 0;
 
-    padding: 1rem 0;
-
-    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,.10);
 
   }
 
 
+  .footer-inner {
+
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    text-align: center;
+
+  }
+
+
+  .footer-inner p {
+
+    margin: 0;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: .8rem;
+
+  }
+
+
+  .dextera {
+
+    margin-left: .3rem;
+
+    font-weight: 700;
+
+    background: linear-gradient(
+      90deg,
+      #2563EB,
+      #06B6D4,
+      #EA580C
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+  }
+
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+
   @media (max-width: 720px) {
 
-    .contact {
+    .contact-section {
 
       padding-top: 4rem;
 
-      padding-bottom: 2rem;
+      padding-bottom: 2.5rem;
+
+    }
+
+
+    .contact-container {
+
+      width: min(92%, 600px);
 
     }
 
@@ -304,18 +481,63 @@ const {
     }
 
 
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    .contact-title {
 
-      margin-top: 2rem;
+      font-size: 2.75rem;
+
     }
 
 
-    .footer {
+    .contact-lead {
+
+      font-size: 1rem;
+
+      line-height: 1.7;
+
+    }
+
+
+    .contact-list {
+
+      margin-top: 1.75rem;
+
+      gap: 1rem;
+
+    }
+
+
+    .contact-socials {
+
+      gap: .6rem;
+
+      margin-top: 1.75rem;
+
+    }
+
+
+    .contact-social-button {
+
+      min-width: 0;
+
+      padding: .65rem 1rem;
+
+    }
+
+
+    .motion-footer {
 
       padding: 1rem 0;
+
+    }
+
+
+    .footer-inner {
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      gap: .35rem;
 
     }
 
