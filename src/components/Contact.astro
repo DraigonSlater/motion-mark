@@ -16,9 +16,7 @@ const {
 
 <section id="contact" class="contact-section">
 
-  <div class="contact-container">
-
-    <!-- Contact Heading -->
+  <div class="container">
 
     <div class="contact-content">
 
@@ -35,51 +33,30 @@ const {
         reply within a business day.
       </p>
 
-
-      <!-- Contact Details -->
-
       <ul class="contact-list">
 
         <li class="contact-item">
+          <strong>Phone</strong>
 
-          <strong>
-            Phone
-          </strong>
-
-          <a
-            href={`tel:${phone.replace(/\s+/g, '')}`}
-          >
+          <a href={`tel:${phone.replace(/\s+/g, '')}`}>
             {phone}
           </a>
-
         </li>
 
-
         <li class="contact-item">
+          <strong>Email</strong>
 
-          <strong>
-            Email
-          </strong>
-
-          <a
-            href={`mailto:${email}`}
-          >
+          <a href={`mailto:${email}`}>
             {email}
           </a>
-
         </li>
 
-
         <li class="contact-item">
-
-          <strong>
-            Address
-          </strong>
+          <strong>Address</strong>
 
           <span>
             {address}
           </span>
-
         </li>
 
       </ul>
@@ -98,7 +75,6 @@ const {
           Facebook
         </a>
 
-
         <a
           href="https://www.instagram.com/motionmarksa/"
           class="contact-social-button"
@@ -107,7 +83,6 @@ const {
         >
           Instagram
         </a>
-
 
         <a
           href="http://wa.me/27636855083"
@@ -126,8 +101,6 @@ const {
 
 </section>
 
-
-<!-- Footer -->
 
 <footer class="motion-footer">
 
@@ -153,27 +126,18 @@ const {
 <style>
 
   /* ============================================
-     CONTACT SECTION
+     CONTACT
      ============================================ */
 
   .contact-section {
 
-    background: var(--color-primary);
+    background: #081a33;
 
     color: #ffffff;
 
     padding-top: 5rem;
 
     padding-bottom: 3rem;
-
-  }
-
-
-  .contact-container {
-
-    width: min(1200px, 92%);
-
-    margin: 0 auto;
 
   }
 
@@ -195,7 +159,7 @@ const {
 
     margin-bottom: .75rem;
 
-    color: var(--color-accent);
+    color: var(--cyan);
 
     font-size: .8rem;
 
@@ -213,6 +177,8 @@ const {
     margin: 0 0 1rem;
 
     color: #ffffff;
+
+    font-family: var(--heading-font);
 
     font-size: clamp(2.5rem, 6vw, 4rem);
 
@@ -272,7 +238,7 @@ const {
 
   .contact-item strong {
 
-    color: var(--color-accent);
+    color: var(--cyan);
 
     font-size: .75rem;
 
@@ -301,6 +267,8 @@ const {
 
 
   .contact-item a:hover {
+
+    color: var(--cyan);
 
     text-decoration: underline;
 
@@ -338,9 +306,9 @@ const {
 
     padding: .65rem 1.25rem;
 
-    background: rgba(255,255,255,.10);
+    background: rgba(255,255,255,.08);
 
-    border: 2px solid rgba(255,255,255,.65);
+    border: 2px solid rgba(255,255,255,.5);
 
     border-radius: 999px;
 
@@ -356,13 +324,13 @@ const {
 
     text-decoration: none !important;
 
-    opacity: 1 !important;
+    opacity: 1;
 
-    visibility: visible !important;
+    visibility: visible;
 
     position: relative;
 
-    z-index: 5;
+    z-index: 2;
 
     transition:
       background .25s ease,
@@ -374,9 +342,9 @@ const {
 
   .contact-social-button:hover {
 
-    background: rgba(255,255,255,.20);
+    background: rgba(255,255,255,.18);
 
-    border-color: #ffffff;
+    border-color: var(--cyan);
 
     color: #ffffff !important;
 
@@ -395,14 +363,14 @@ const {
 
     padding: 1.25rem 0;
 
-    border-top: 1px solid rgba(255,255,255,.10);
+    border-top: 1px solid rgba(255,255,255,.1);
 
   }
 
 
   .footer-inner {
 
-    width: min(1200px, 92%);
+    width: min(var(--max-width), 92%);
 
     margin: 0 auto;
 
@@ -413,8 +381,6 @@ const {
     justify-content: space-between;
 
     gap: 1rem;
-
-    text-align: center;
 
   }
 
@@ -438,14 +404,16 @@ const {
 
     background: linear-gradient(
       90deg,
-      #2563EB,
-      #06B6D4,
-      #EA580C
+      var(--blue),
+      var(--cyan),
+      var(--orange)
     );
+
+    background-clip: text;
 
     -webkit-background-clip: text;
 
-    background-clip: text;
+    color: transparent;
 
     -webkit-text-fill-color: transparent;
 
@@ -463,13 +431,6 @@ const {
       padding-top: 4rem;
 
       padding-bottom: 2.5rem;
-
-    }
-
-
-    .contact-container {
-
-      width: min(92%, 600px);
 
     }
 
@@ -501,8 +462,6 @@ const {
 
       margin-top: 1.75rem;
 
-      gap: 1rem;
-
     }
 
 
@@ -524,18 +483,13 @@ const {
     }
 
 
-    .motion-footer {
-
-      padding: 1rem 0;
-
-    }
-
-
     .footer-inner {
 
       flex-direction: column;
 
       justify-content: center;
+
+      text-align: center;
 
       gap: .35rem;
 
