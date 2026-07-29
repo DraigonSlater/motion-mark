@@ -1,73 +1,124 @@
 ---
+interface Props {
+  companyName?: string;
+}
+
+const { companyName = "Motion Mark" } = Astro.props;
 ---
 
-<section id="about" class="bg-alt">
+<section id="about" class="relative overflow-hidden bg-white py-24">
 
-<div class="container">
+  <!-- Background Glow -->
+  <div class="absolute inset-0 -z-10">
 
-<div class="grid items-center gap-20 lg:grid-cols-2">
+    <div class="absolute -left-40 top-0 h-[450px] w-[450px] rounded-full bg-blue-500/10 blur-3xl"></div>
 
-<div>
+    <div class="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-3xl"></div>
 
-<div class="rounded-[30px] bg-gradient-to-br from-blue-600 via-cyan-400 to-orange-500 p-1">
+  </div>
 
-<div class="rounded-[28px] bg-white p-16">
+  <div class="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.15fr_0.85fr]">
 
-<div class="aspect-square rounded-2xl border-2 border-dashed border-slate-300 flex items-center justify-center">
+    <!-- LEFT SIDE -->
 
-<p class="text-slate-400">
-Truck Image Placeholder
-</p>
+    <div>
 
-</div>
+      <p class="mb-4 font-semibold uppercase tracking-[0.3em] text-blue-600">
+        OUR STORY
+      </p>
 
-</div>
+      <h2 class="mb-8 text-5xl font-black text-slate-900">
+        More than just advertising.
+        <span class="gradient-text block">
+          We put your message in motion.
+        </span>
+      </h2>
 
-</div>
+      <div class="space-y-7 text-lg leading-9 text-slate-600">
 
-</div>
+        <p>
+          <strong>Motion Mark</strong> was founded in <strong>2026</strong> with a simple vision:
+          to redefine outdoor advertising through innovative mobile LED technology.
+          We believe advertising should never be confined to one location. Instead,
+          it should travel, connect with people and create memorable brand experiences
+          wherever it goes.
+        </p>
 
-<div>
+        <p>
+          Founded by <strong>Rachel Langman</strong>, Motion Mark was built on the belief
+          that businesses deserve advertising solutions that are as dynamic as the
+          audiences they want to reach. By combining premium LED display technology
+          with strategic mobility, we help brands stand out in a crowded world.
+        </p>
 
-<p class="mb-4 font-semibold uppercase tracking-[0.3em] text-blue-600">
-  ABOUT MOTION MARK
-</p>
+        <p>
+          Based in <strong>Cape Town</strong>, we work with businesses, event organisers
+          and agencies to create campaigns that capture attention where it matters
+          most. Whether it's promoting a product launch, supporting a community
+          event or building long-term brand awareness, every campaign is planned
+          with creativity, professionalism and purpose.
+        </p>
 
-<h2 class="mb-6">
-  Your Message. <span class="gradient-text">In Motion.</span>
-</h2>
+        <p class="border-l-4 border-cyan-400 pl-6 italic text-slate-700">
+          "Every kilometre travelled is another opportunity to put your message in motion."
+        </p>
 
-<p class="mb-8">
-We combine cutting-edge LED display technology with mobile advertising to create unforgettable experiences. Whether promoting a business, launching a product or hosting an event, Motion Mark delivers maximum visibility wherever your audience is.
-</p>
+      </div>
 
-<div class="grid gap-4">
+      <!-- Company Highlights -->
 
-<div>✓ Triple High-Resolution LED Screens</div>
+      <div class="mt-12 flex flex-wrap gap-4">
 
-<div>✓ Fold-Out Event Stage</div>
+        <div class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 font-medium text-slate-700 shadow-sm">
+          📍 Cape Town Based
+        </div>
 
-<div>✓ Professional Sound System</div>
+        <div class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 font-medium text-slate-700 shadow-sm">
+          🚚 Founded 2026
+        </div>
 
-<div>✓ Mobile Advertising Campaigns</div>
+        <div class="rounded-full border border-slate-200 bg-slate-50 px-5 py-3 font-medium text-slate-700 shadow-sm">
+          💡 Founder-Led Business
+        </div>
 
-<div>✓ Event & Festival Hire</div>
+      </div>
 
-</div>
+    </div>
 
-<a
-href="#contact"
-class="btn-primary mt-10"
->
+    <!-- RIGHT SIDE -->
 
-Get a Quote
+    <div class="relative">
 
-</a>
+      <div class="overflow-hidden rounded-[36px] border border-white/50 bg-white p-4 shadow-2xl">
 
-</div>
+        <img
+          src="/images/about-placeholder.jpg"
+          alt="Motion Mark Story"
+          class="h-full w-full rounded-[28px] object-cover"
+        />
 
-</div>
+      </div>
 
-</div>
+      <!-- Floating Card -->
+
+      <div class="absolute -bottom-8 left-8 rounded-3xl border border-white/60 bg-white/90 p-6 shadow-xl backdrop-blur-xl">
+
+        <p class="text-sm uppercase tracking-[0.2em] text-slate-500">
+          Founded
+        </p>
+
+        <h3 class="mt-1 text-4xl font-black gradient-text">
+          2026
+        </h3>
+
+        <p class="mt-2 text-sm text-slate-500">
+          Cape Town, South Africa
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
